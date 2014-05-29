@@ -1,6 +1,6 @@
 ## What is ansible-sidekiq?
 
-It is an [ansible](http://www.ansible.com/home) role to manage a sidekiq worker.
+It is an [ansible](http://www.ansible.com/home) role to manage a sidekiq worker for a rails application.
 
 ### What problem does it solve and why is it useful?
 
@@ -12,7 +12,7 @@ It gives you access to these commands after it's setup:
 - `sudo service sidekiq stop`
 - `sudo service sidekiq restart`
 - `sudo service sidekiq reload`
-- `sudo service yourapp status`
+- `sudo service sidekiq status`
 
 ## Role variables
 
@@ -20,7 +20,7 @@ Below is a list of default values along with a description of what they do.
 
 ```
 # The path to the config file.
-sidekiq_config_path: config/{{ sidekiq_server }}.yml
+sidekiq_config_path: config/sidekiq.yml
 
 # Should a restart be forced?
 sidekiq_force_restart: false

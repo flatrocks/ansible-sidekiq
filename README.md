@@ -67,6 +67,10 @@ It depends on the [nickjj.rails](https://github.com/nickjj/ansible-rails) role. 
 
 Tested on ubuntu 12.04 LTS but it should work on other versions that are similar.
 
+## Ansible galaxy
+
+You can find it on the official [ansible galaxy](https://galaxy.ansible.com/list#/roles/947) if you want to rate it.
+
 ## Example sidekiq config
 
 Make sure sidekiq is set to write out a pidfile and logfile.

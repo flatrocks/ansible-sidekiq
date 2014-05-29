@@ -1,0 +1,10 @@
+---
+- name: ensure sidekiq init.d config is created
+  template: src=initd_sidekiq.j2 dest=/etc/init.d/sidekiq mode=0755
+
+- name: ensure sidekiq restarts
+  service: name=sidekiq state=restarted enabled=yes
+  when: repo_status.changed or sidekiq_force_restart
+
+- name: ensure sidekiq starts on a fresh reboot
+  service: name=sidekiq state=started enabled=yes

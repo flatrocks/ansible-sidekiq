@@ -1,0 +1,2 @@
+sidekiq_config_path: config/sidekiq.yml
+sidekiq_force_restart: false

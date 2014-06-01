@@ -25,7 +25,8 @@ app_root="{{ rails_deploy_path }}"
 pid_path="$app_root/tmp"
 
 sidekiq_pid_path="$pid_path/sidekiq.pid"
-sidekiqconfig_switch="-C {{ sidekiq_config_path }}"
+sidekiq_config_switch="-C {{ sidekiq_config_path }}"
+sidekiq_log_command="{{ sidekiq_log_path }}"
 
 # ---------------------------------------------------------------------------
 # source the environment, ensure correct user, switch into the app's path
@@ -46,7 +47,7 @@ fi
 # private commands related to sidekiq
 # ---------------------------------------------------------------------------
 sidekiq_start(){
-  $bundle exec bin/sidekiq $sidekiq_config_switch -d
+  $bundle exec bin/sidekiq $sidekiq_config_switch -d $sidekiq_log_command
 }
 
 sidekiq_stop(){

@@ -20,7 +20,11 @@ Below is a list of default values along with a description of what they do.
 
 ```
 # The path to the config file.
-sidekiq_config_path: config/sidekiq.yml
+sidekiq_config_path: {{ rails_deploy_path }}/config/sidekiq.yml
+
+# The log command or path.
+# If you want to use syslog set it to:  2>&1 | logger -t sidekiq
+sidekiq_log_path: -L {{ rails_deploy_path }}/log/sidekiq.log
 
 # Should a restart be forced?
 sidekiq_force_restart: false
@@ -80,7 +84,6 @@ Make sure sidekiq is set to write out a pidfile and logfile.
 ```
 ---
 :pidfile: /full/path/to/your/project/tmp/sidekiq.pid
-:logfile: /full/path/to/your/project/log/sidekiq.log
 :concurrency: 25
 :queues:
   - default

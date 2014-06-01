@@ -20,7 +20,7 @@ Below is a list of default values along with a description of what they do.
 
 ```
 # The path to the config file.
-sidekiq_config_path: {{ rails_deploy_path }}/config/sidekiq.yml
+sidekiq_config_path: "{{ rails_deploy_path }}/config/sidekiq.yml"
 
 # The log command or path.
 # If you want to use syslog set it to:  2>&1 | logger -t sidekiq

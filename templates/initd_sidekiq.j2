@@ -191,8 +191,8 @@ stop_app() {
 
   sleep 1
 
-  # clean up the pid file, sidekiq does this automatically
-  # rm "$sidekiq_pid_path" 2>/dev/null
+  # clean up the pid file
+  rm "$sidekiq_pid_path" 2>/dev/null
 
   print_status
 }

@@ -1,4 +1,4 @@
-## What is ansible-sidekiq?
+## What is ansible-sidekiq? [![Build Status](https://secure.travis-ci.org/nickjj/ansible-sidekiq.png)](http://travis-ci.org/nickjj/ansible-sidekiq)
 
 It is an [ansible](http://www.ansible.com/home) role to manage a sidekiq worker for a rails application.
 

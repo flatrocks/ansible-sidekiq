@@ -15,7 +15,7 @@ before_install:
 install:
   - "pip install ansible==1.6.2"
   - "printf '[defaults]\nroles_path = ../' > ansible.cfg"
-  - "ansible-galaxy install nickjj.ruby nickjj.rails nickjj.pumacorn --force"
+  - "ansible-galaxy install nickjj.ruby nickjj.rails --force"
 
 script:
   - "git config --global user.email 'foo@bar.com' && git config --global user.name 'Foo Bar'"
@@ -27,12 +27,9 @@ script:
     | grep -q 'changed=2.*failed=0'
     && (echo 'Idempotence test: pass' && exit 0)
     || (echo 'Idempotence test: fail' && exit 1)
+  - "cd /tmp/app.git && /usr/local/rvm/wrappers/default/bundle exec bin/puma -C config/puma.rb -d"
+  - sleep 3
   - "sudo service sidekiq status"
-  - >
-    curl -s -o /dev/null -w "%{http_code}" http://localhost:3000
-    | grep -q '200'
-    && (echo 'HTTP test: pass' && exit 0)
-    || (echo 'HTTP test: fail' && exit 1)
   - >
     curl -s -o /dev/null -w "%{http_code}" http://localhost:3000/sidekiq
     | grep -q '200'

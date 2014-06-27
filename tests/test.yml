@@ -15,5 +15,4 @@
   roles:
     - nickjj.ruby
     - nickjj.rails
-    - nickjj.pumacorn
     - ansible-sidekiq

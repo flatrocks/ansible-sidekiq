@@ -33,3 +33,8 @@ script:
     | grep -q '200'
     && (echo 'HTTP test: pass' && exit 0)
     || (echo 'HTTP test: fail' && exit 1)
+  - >
+    curl -s -o /dev/null -w "%{http_code}" http://localhost:3000/sidekiq
+    | grep -q '200'
+    && (echo 'HTTP test: pass' && exit 0)
+    || (echo 'HTTP test: fail' && exit 1)

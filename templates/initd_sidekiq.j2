@@ -18,10 +18,10 @@
 # ---------------------------------------------------------------------------
 # configuration options
 # ---------------------------------------------------------------------------
-app_name="{{ rails_deploy_app_name }}"
+app_name="{{ rails_app_name }}"
 app_user="{{ rails_deploy_user }}"
 app_root="{{ rails_deploy_path }}"
-bundle="{{ rails_deploy_bundle }}"
+bundle="{{ rails_bundle }} exec"
 
 pid_path="$app_root/tmp"
 
@@ -48,11 +48,11 @@ fi
 # private commands related to sidekiq
 # ---------------------------------------------------------------------------
 sidekiq_start(){
-  $bundle exec bin/sidekiq $sidekiq_config_switch -d $sidekiq_log_command
+  $bundle bin/sidekiq $sidekiq_config_switch -d $sidekiq_log_command
 }
 
 sidekiq_stop(){
-  $bundle exec bin/sidekiqctl stop $sidekiq_pid_path
+  $bundle bin/sidekiqctl stop $sidekiq_pid_path
 }
 
 # ---------------------------------------------------------------------------

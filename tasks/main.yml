@@ -4,7 +4,7 @@
 
 - name: ensure sidekiq restarts
   service: name=sidekiq state=restarted enabled=yes
-  when: rails_repo_status_changed|bool or sidekiq_force_restart
+  when: repo_status.changed or sidekiq_force_restart
 
 - name: ensure sidekiq starts on a fresh reboot
   service: name=sidekiq state=started enabled=yes

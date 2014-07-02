@@ -43,7 +43,7 @@ To use this role edit your `site.yml` file to look something like this:
 
   roles:
     # Insert other roles here to provision the server before managing sidekiq.
-    - { role: nickjj.sidekiq, tags: sidekiq }
+    - { role: nickjj.sidekiq, tags: [app, rails] }
 ```
 
 Let's say you want to edit a few defaults, you can do this by opening or creating `group_vars/all.yml` which is located relative to your `inventory` directory and then making it look something like this:
